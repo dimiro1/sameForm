@@ -15,8 +15,7 @@ Dependencies
 
 Building
 --------
-Install Rake
-Install less <http://lesscss.org/>
+Install Rake and less <http://lesscss.org/>
 
         rake sameform:build
 
