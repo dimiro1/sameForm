@@ -20,7 +20,7 @@ Just edit the images and css.
 Author
 ------
 
-Claudemiro Feitosa<dimiro1@gmail.com>
+Claudemiro Feitosa (<dimiro1@gmail.com>)
 
 License:
 --------
