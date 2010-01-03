@@ -1,3 +1,7 @@
+=rounded-corners
+  -moz-border-radius: 3px
+  -webkit-border-radius: 3px
+
 =radio-common
   width: 13px
   height: 13px
@@ -19,8 +23,9 @@
   padding: 5px
   font-size: 12px
   color: #333
-  border: 1px solid #d2d2d2
-  background: url(button-bg.png) repeat-x
+  border: 1px solid #c7c7c7
+  background: url(images/button-bg.png) repeat-x
+  +rounded-corners
   +cursor
 
 =cursor
@@ -61,7 +66,7 @@
     &[type=text], &[type=password]
       margin: 5px 0 5px 0
       padding: 3px 5px
-      border: 1px solid #d2d2d2
+      border: 1px solid #c7c7c7
       font-size: 12px
       color: #333
 
@@ -72,9 +77,10 @@
   textarea
     margin: 5px 0 5px 0
     padding: 3px 5px
-    border: 1px solid #d2d2d2
+    border: 1px solid #c7c7c7
     font-size: 12px
     color: #333
+
 
   textarea:focus
     outline: #a5cbdb solid 2px
@@ -83,7 +89,7 @@
     float: left
     width: 170px
     position: relative
-    border: 1px solid #d2d2d2
+    border: 1px solid #c7c7c7
     .options
       position: absolute
       left: -1px
@@ -92,7 +98,7 @@
       width: 170px
       max-height: 200px
       height: auto
-      border: 1px solid #d2d2d2
+      border: 1px solid #c7c7c7
       border-top: 0
       padding: 0
       ul
