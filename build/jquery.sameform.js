@@ -1,32 +1,21 @@
 /*
- *
  * sameForm - Your form with the same nice look in all browsers.
  * by Claudemiro Feitosa <dimiro1@gmail.com>
  *
- * Version 0.1
+ * Version: 0.1
  *
- * TODO:
- * disabled selects, radios, checkboxes
- * multiselect
- * filefield
- * open select up
- * effects in select
- * test compatibility
- *
- ******************************************** */
-
-function checkExternalClick(event) {
-	if ($(event.target).parents('.activedropdown').length === 0) {
-		$('.activedropdown').removeClass('activedropdown');
-		$('.options').hide();
-	}
-};
-
+ */
 // SELECT
+// Based on http://mondaybynoon.com/2009/02/23/creating-custom-form-elements-using-jquery-selects/
 (function($) {
   $.fn.sameSelect = function() {
     var z = 999;
-    $(document).mousedown(checkExternalClick);
+    $(document).mousedown(function checkExternalClick(event) {
+      if ($(event.target).parents('.activedropdown').length === 0) {
+	     $('.activedropdown').removeClass('activedropdown');
+		  $('.options').hide();
+	   }
+    });
     return this.each(function(i, original_select) {
       var parent = $(original_select).parent();
       $(original_select).hide(); // hide the original select
@@ -84,44 +73,6 @@ function checkExternalClick(event) {
     });
   };
 })(jQuery);
-
-// CHECKBOX
-(function($) {
-  $.fn.sameCheckbox = function() {
-    return this.each(function(i, element) {
-      var parent = $(element).parent();
-      var checked = "off";
-      if ($(element).attr("checked")) {
-        checked = "on";
-      }
-      // create the enhanced checkbox
-      var check = $("<span></span>")
-                    .addClass("checkbox")
-                    .addClass(checked)
-                    .html("&nbsp;"); // IE need something inside
-      $(check).insertAfter(element);
-      $(element).hide(); // hide the original checkbox
-
-      // LABEL Accessibility
-      $('label[for=' + $(element).attr("name") + ']').live("click", function() {
-        $(check).click();
-      });
-      // bind the click function
-      $(check).click(function(e) {
-        if ($(element).attr("checked")) {
-          $(element).removeAttr("checked");
-          $(check).addClass("off");
-          $(check).removeClass("on");
-        } else {
-          $(element).attr({"checked": "checked"});
-          $(check).removeClass("off");
-          $(check).addClass("on");
-        }
-      });
-    });
-  };
-})(jQuery);
-
 // RADIO
 (function($) {
   $.fn.sameRadio = function() {
@@ -159,7 +110,42 @@ function checkExternalClick(event) {
     });
   };
 })(jQuery);
+// CHECKBOX
+(function($) {
+  $.fn.sameCheckbox = function() {
+    return this.each(function(i, element) {
+      var parent = $(element).parent();
+      var checked = "off";
+      if ($(element).attr("checked")) {
+        checked = "on";
+      }
+      // create the enhanced checkbox
+      var check = $("<span></span>")
+                    .addClass("checkbox")
+                    .addClass(checked)
+                    .html("&nbsp;"); // IE need something inside
+      $(check).insertAfter(element);
+      $(element).hide(); // hide the original checkbox
 
+      // LABEL Accessibility
+      $('label[for=' + $(element).attr("name") + ']').live("click", function() {
+        $(check).click();
+      });
+      // bind the click function
+      $(check).click(function(e) {
+        if ($(element).attr("checked")) {
+          $(element).removeAttr("checked");
+          $(check).addClass("off");
+          $(check).removeClass("on");
+        } else {
+          $(element).attr({"checked": "checked"});
+          $(check).removeClass("off");
+          $(check).addClass("on");
+        }
+      });
+    });
+  };
+})(jQuery);
 (function($) {
   $.fn.sameForm = function() {
     return this.each(function(i, form) {

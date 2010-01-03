@@ -1,6 +1,7 @@
-disabled selects, radios, checkboxes
-multiselect
-filefield
-open select up
-effects in select
-test compatibility
+(A) filefield
+(B) multiselect
+(B) open select up
+(B) test compatibility
+(B) focus selects, radios, checkboxes, for accessibility
+(C) disabled selects, radios, checkboxes
+(C) effects in select

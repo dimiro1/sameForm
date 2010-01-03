@@ -8,8 +8,16 @@ Usage
 
         $('form').sameForm();
 
+Dependencies
+-----------
+        jquery
+        jquery-ui
+
 Building
 --------
+Install Rake
+Install less <http://lesscss.org/>
+
         rake sameform:build
 
 Customize
