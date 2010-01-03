@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="build/sameform.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="dep/jquery.js"></script>
+    <script type="text/javascript" src="dep/jquery-ui.js"></script>
+    <script type="text/javascript" src="build/jquery.sameform.min.js"></script>
+    <title>SameForm Example</title>
+    <!-- http://mondaybynoon.com/2009/02/23/creating-custom-form-elements-using-jquery-selects/ -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+       $("form").sameForm();
+      });
+    </script>
+  </head>
+  <body>
+    <form id="frm_prototype" action="http://localhost:4567/test" method="post">
+      <fieldset>
+        <legend>SameForms</legend>
+        <h3>SELECT</h3>
+        <label for="misc">Select</label>
+        <select name="misc">
+          <option value="" selected="selected">Mais ações...</option>
+          <option value="destroy">Remover selecionados</option>
+        </select>
+        <br />
+        <div>
+          <h3>TEXT</h3>
+          <label for="text">text</label>
+          <input type="text" name="text" value="" /><br />
+          <label for="text">password</label>
+          <input type="password" name="password" value="" />
+        </div>
+        <div>
+          <h3>Check Box</h3>
+          <input type="checkbox" name="email" value="email" /> <label for="email">Email</label> <br />
+          <input type="checkbox" name="sms" value="sms" checked="checked" /> <label for="sms">SMS</label>
+        </div>
+        <div>
+          <h3>Radio</h3>
+          <input type="radio" name="gender" value="M" checked="checked"/> <label for="gender">Male</label> <br />
+          <input type="radio" name="gender" value="F" /> <label for="gender">Female</label>
+        </div>
+        <div>
+          <h3>TEXAREA</h3>
+          <textarea rows="5" cols="20"></textarea>
+        </div>
+        <div class="buttons">
+          <h3>Buttons</h3>
+          <input type="submit" id="submit" name="submit" />
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

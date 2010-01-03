@@ -1,0 +1,32 @@
+* {
+   margin: 0;
+   padding: 0; }
+
+
+body {
+  margin: 2em;
+  font: 13px helvetica, arial, sans-serif;
+  background: #fff;
+  color: #000; }
+
+
+form {
+  margin-bottom: 25px; }
+  form fieldset {
+    border: 0; }
+  form div {
+    clear: left;
+    padding: 10px 0; }
+  form legend {
+    font-size: 16px;
+    font-weight: bold; }
+  form label {
+    display: block;
+    width: 75px;
+    float: left; }
+  form select {
+    display: block;
+    width: 225px;
+    float: left; }
+  form button {
+    padding: 5px; }
