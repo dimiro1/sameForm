@@ -13,8 +13,12 @@
         .addClass(checked)
         .html("&nbsp;"); // IE need something inside
       $(radio).insertAfter(element);
-      $(element).hide(); // hide the original checkbox
+      $(element).hide(); // hide the original radio
 
+      // LABEL Accessibility
+      $('label[for=' + $(element).attr("id") + ']').live("click", function() {
+        $(radio).click();
+      });
       // bind the click function
       $(radio).click(function(e) {
         $('input[name=' + $(element).attr("name") + ']').each(function(j, r) {

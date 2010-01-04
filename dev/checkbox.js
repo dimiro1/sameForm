@@ -16,7 +16,7 @@
       $(element).hide(); // hide the original checkbox
 
       // LABEL Accessibility
-      $('label[for=' + $(element).attr("name") + ']').live("click", function() {
+      $('label[for=' + $(element).attr("id") + ']').live("click", function() {
         $(check).click();
       });
       // bind the click function

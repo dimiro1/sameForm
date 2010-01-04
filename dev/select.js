@@ -1,11 +1,12 @@
 // SELECT
-// Based on http://mondaybynoon.com/2009/02/23/creating-custom-form-elements-using-jquery-selects/
+// Inspired by http://mondaybynoon.com/2009/02/23/creating-custom-form-elements-using-jquery-selects/
 (function($) {
   $.fn.sameSelect = function() {
     var z = 999;
     $(document).mousedown(function checkExternalClick(event) {
-      if ($(event.target).parents('.activedropdown').length === 0) {
-	     $('.activedropdown').removeClass('activedropdown');
+      if ($(event.target).parents('.select.on').length === 0) {
+        $('.select.on').removeClass('on');
+	     $('.select.on').removeClass('on');
 		  $('.options').hide();
 	   }
     });
@@ -14,7 +15,7 @@
       $(original_select).hide(); // hide the original select
 
 	   // prep the target for our new markup
-      var select = $('<dl class="select"><dt><a class="dropdown_toggle" href="#"></a></dt><dd><div class="options"><ul></ul></div></dd></dl>').css('zIndex', z);
+      var select = $('<dl class="select"><dt><a class="toggle" href="javascript:void(0);"></a></dt><dd><div class="options"><ul></ul></div></dd></dl>').css('zIndex', z);
       z--;
       // put new select under the original
       $(select).insertAfter(original_select);
@@ -26,24 +27,24 @@
 	   var option_index = 0;
 	   $(original_select).find('option').each(function(option_index, option) {
 		  // add the option
-        $(parent).find('.select .options ul').append('<li><a href="#"><span class="value">' + $(option).text() + '</span><span class="hidden index">' + option_index + '</span></a></li>');
+        $(parent).find('.select .options ul').append('<li><a href="javascript:void(0);"><span class="value">' + $(option).text() + '</span><span class="hidden index">' + option_index + '</span></a></li>');
 
 		  // check to see if this is what the default should be
 		  if($(option).attr('selected')) {
           var selected = $("<span></span>").html($(option).text());
-			 $(select).find('a.dropdown_toggle').append(selected);
+			 $(select).find('a.toggle').append(selected);
 		  }
 		  i++;
       });
 
       // let's hook our links, ya?
-	   $('a.dropdown_toggle').live('click', function() {
+	   $('a.toggle').live('click', function() {
         var theseOptions = $(this).parent().parent().find('.options');
 		  if(theseOptions.css('display') == 'block') {
-			 $('.activedropdown').removeClass('activedropdown');
+			 $('.select.on').removeClass('on');
 			 theseOptions.hide();
 		  } else {
-			theseOptions.parent().parent().addClass('activedropdown');
+			theseOptions.parent().parent().addClass('on');
 			theseOptions.show();
 		  }
 		  return false;
@@ -60,7 +61,7 @@
 		  realselect[0].selectedIndex = $(this).find('span.index').text();
 
 		  // update the pseudo selected element
-		  enhanced.find('.dropdown_toggle').empty().append('<span></span>').find('span').text($(this).find('span.value').text());
+		  enhanced.find('.toggle').empty().append('<span></span>').find('span').text($(this).find('span.value').text());
 		  return false;
       });
     });

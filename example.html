@@ -20,8 +20,8 @@
       <fieldset>
         <legend>SameForm</legend>
         <h3>SELECT</h3>
-        <label for="misc">Select</label>
-        <select name="misc">
+        <label for="select">Select</label>
+        <select name="misc" id="select">
           <option value="1" selected="selected">option 1</option>
           <option value="2">option 2</option>
           <option value="3">option 3</option>
@@ -35,23 +35,23 @@
         <div>
           <h3>TEXT</h3>
           <label for="text">text</label>
-          <input type="text" name="text" value="" /><br />
-          <label for="text">password</label>
-          <input type="password" name="password" value="" />
+          <input type="text" id="text" name="text" value="" /><br />
+          <label for="password">password</label>
+          <input type="password" id="password" name="password" value="" />
         </div>
         <div>
           <h3>Check Box</h3>
           <label for="email">Email</label>
-          <input type="checkbox" name="email" value="email" /><br />
+          <input type="checkbox" id="email" name="email" value="email" /><br />
           <label for="sms">SMS</label>
-          <input type="checkbox" name="sms" value="sms" checked="checked" />
+          <input type="checkbox" id="sms" name="sms" value="sms" checked="checked" />
         </div>
         <div>
           <h3>Radio</h3>
-          <label for="gender">Male</label>
-          <input type="radio" name="gender" value="M" checked="checked"/><br />
-          <label for="gender">Female</label>
-          <input type="radio" name="gender" value="F" />
+          <label for="male">Male</label>
+          <input type="radio" id="male" name="gender" value="M" checked="checked"/><br />
+          <label for="female">Female</label>
+          <input type="radio" id="female" name="gender" value="F" />
         </div>
         <div>
           <h3>TEXAREA</h3>
